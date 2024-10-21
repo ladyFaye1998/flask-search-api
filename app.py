@@ -1,12 +1,16 @@
+# app.py
+
 from flask import Flask, request, jsonify
 import os
 import numpy as np
 import torch
 import faiss
 from sentence_transformers import SentenceTransformer, CrossEncoder
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
 import re
 from functools import lru_cache
 import logging
@@ -14,41 +18,9 @@ import json
 import threading
 import math
 
-import nltk  # Import NLTK first
-
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# Ensure NLTK data is downloaded before importing dependent modules
-nltk_data_path = os.path.join(os.getcwd(), 'nltk_data')
-if not os.path.exists(nltk_data_path):
-    os.makedirs(nltk_data_path)
-
-nltk.data.path.append(nltk_data_path)
-
-# List of required NLTK packages
-required_nltk_packages = [
-    'wordnet',
-    'punkt',
-    'averaged_perceptron_tagger',
-    'stopwords'
-]
-
-# Download required NLTK data if not already present
-for package in required_nltk_packages:
-    try:
-        if package == 'punkt':
-            nltk.data.find(f'tokenizers/{package}')
-        else:
-            nltk.data.find(f'corpora/{package}')
-    except LookupError:
-        logger.info(f"Downloading NLTK package: {package}")
-        nltk.download(package, download_dir=nltk_data_path)
-
-# Now import NLTK modules that depend on the downloaded data
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -178,7 +150,7 @@ def find_relevant_links(query, top_n=3):
     if not links or content_embeddings is None or ann_index is None:
         logger.warning("Data is not ready for searching.")
         return []
-    
+
     # Step 1: Preprocess the query
     query_processed = preprocess_text(query)
 
