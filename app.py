@@ -17,6 +17,11 @@ import logging
 import json
 import threading
 import math
+nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('stopwords')
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
