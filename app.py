@@ -17,10 +17,6 @@ import logging
 import json
 import threading
 import math
-nltk.download('wordnet')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('stopwords')
 
 
 # Configure logging
@@ -236,6 +232,6 @@ def home():
         }
     })
 
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+#if __name__ == '__main__':
+#    port = int(os.environ.get("PORT", 5000))
+#    app.run(host='0.0.0.0', port=port)
