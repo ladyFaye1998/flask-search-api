@@ -2,8 +2,7 @@ Flask==2.3.2
 sentence-transformers>=2.2.2
 torch==2.0.1
 faiss-cpu==1.7.3
--nltk==3.9.0
-+nltk==3.8.1
+nltk==3.8.1
 requests==2.31.0
 beautifulsoup4==4.12.2
 numpy==1.24.2
