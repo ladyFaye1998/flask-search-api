@@ -1,8 +1,8 @@
 Flask==2.3.2
 sentence-transformers>=2.2.2
-torch==2.0.1  # No need to specify +cpu, default will be CPU if GPU is not available
+torch==2.0.1  # Use the default torch version without the +cpu
 faiss-cpu==1.7.3
 nltk==3.9.0
-requests==2.31.0  # Lower the version to avoid CVE issue
+requests==2.31.0
 beautifulsoup4==4.12.2
-numpy==1.21.0  # Version compatible with torch
+numpy==1.20.3  # More stable version for compatibility
