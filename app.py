@@ -21,6 +21,12 @@ import math
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Download the wordnet data if not already available
+nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+
 # Ensure NLTK data is downloaded only once
 nltk_data_path = os.path.join(os.path.dirname(__file__), 'nltk_data')
 if not os.path.exists(nltk_data_path):
