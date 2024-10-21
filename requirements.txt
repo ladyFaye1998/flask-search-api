@@ -1,8 +1,8 @@
 Flask==2.3.2
 sentence-transformers>=2.2.2
-torch==2.0.1
-faiss-cpu==1.7.2  # Adjusting faiss-cpu to an earlier version for compatibility
+torch==2.0.1+cpu
+faiss-cpu==1.7.3
 nltk==3.9.0
-requests==2.32.0
+requests==2.31.0  # Use an older version to avoid CVE conflicts
 beautifulsoup4==4.12.2
-numpy==1.21.0  # Pinning numpy to 1.21.0 to resolve compatibility issues
+numpy==1.21.0  # Version compatible with torch
