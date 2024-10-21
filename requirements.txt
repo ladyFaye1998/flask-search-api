@@ -5,4 +5,4 @@ faiss-cpu==1.7.3
 nltk==3.9.0
 requests==2.31.0
 beautifulsoup4==4.12.2
-numpy==1.24.2  # More stable version for compatibility
+numpy==1.20.3 --only-binary=:all:  # Force using pre-built binaries
