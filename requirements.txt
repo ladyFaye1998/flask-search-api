@@ -1,7 +1,8 @@
 Flask==2.3.2
-sentence-transformers>=2.2.2
-torch==2.0.1
-faiss-cpu
-nltk
-requests
-beautifulsoup4
+sentence-transformers==2.2.2
+torch==2.0.1  # This should work with numpy >= 1.22
+faiss-cpu==1.7.3
+nltk==3.9.0
+requests==2.32.0
+beautifulsoup4==4.12.2
+numpy>=1.22  # Ensure a compatible numpy version
